@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// cxriluridan chveulebrivze gadayvanis da migebuli ricxvis p-obit sistemashi gadayvana
+int main()
+{
+    int A[15], B[100], n, p;
+    cout << "sheiyvanet zoma (3-dan 15-is chatvlit): ";
+    cin >> n;
+    cout << "sheiyvanet ricxvebi: ";
+    for(int i = 0; i < n; i++)
+        cin >> A[i];
+    cout << "sheiyvanet p ricxvi: ";
+    cin >> p;
+    //
+    int num = 0;
+    for(int i = 0; i < n; i++)
+        num = num * 10 + A[i];
+    //
+    cout << "chveulebrivze gadayvanili: " << num << endl;
+    //
+    int k = -1, N = num;
+    while(N >= 1)
+    {
+        k++;
+        B[k] = N % p;
+        N /= p;
+    }
+    //
+    cout << p << "-obitshi gadayvanili: ";
+    for(int i = 0; i < k; i++)
+        cout << B[i];
+    cout << endl;
+
+    return 0;
+}

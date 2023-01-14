@@ -1,0 +1,54 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int A[10000], B[10000], C[10000];
+    int n, m;
+    cout << "Enter n size: ";
+    cin >> n;
+    cout << "Enter array: ";
+    for(int i = 0; i < n; i++)
+        cin >> A[i];
+    cout << "Enter m size: ";
+    cin >> m;
+    cout << "Enter array: ";
+    for(int i = 0; i < m; i++)
+        cin >> B[i];
+    //
+    for(int i = 0; i < n; i++)
+        C[i] = 0;
+    for(int i = 0; i < n; i++)
+    {                                           // tu iqneba sxvobis magivrad shekreba.
+        C[i] = A[i] - B[i] + C[i];              //C[i] = A[i] + B[i] + C[i];
+        if(C[i] < 0)                            //if(C[i] >=10)
+        {                                       //   {c[i+1] ++;
+            C[i] += 10;                         //      c[i]=c[i]%10;
+            C[i + 1]--;
+        }
+    }
+    while(C[n] = 0)
+        n--;
+    //
+    for(int i = n - 1; i >= 0; i--)
+        cout << C[i];
+
+    return 0;
+}
+
+gamravlebis algoritmi 
+
+cin >> n >> m;
+for (int i = 0; i < n; i++)cin >> a[i];
+for (int i = 0; i < m; i++)cin >> b[i];
+k = m + n;
+for (int i = 0; i < n; i++)
+for (int j = 0; j < m; j++)
+c[i + j] = a[i] * b[j] + c[i + j];
+for (int i = 0; i< k - 1; i++) {
+c[i + 1] = c[i + 1] + c[i] / 10;
+c[i] = c[i] % 10;
+}
+while (c[k] == 0)k--;
+for (int i = k; i >= 0; i--)
+
+cout >> c[i];

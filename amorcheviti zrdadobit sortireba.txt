@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// zrdadobit dalageba (amorcheviti)
+int main()
+{
+    int arr[10000], n, k, min;
+    cout << "sheiyvanet masivis zoma: ";
+    cin >> n;
+    cout << "sheiyvanet ricxvebi: ";
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    //
+    for(int i = 0; i < n - 1; i++)
+    {
+        k = i;
+        min = arr[i];
+        for(int j = i + 1; j < n; j++)
+        {
+            if(arr[j] < min)
+            {
+                min = arr[j];
+                k = j;
+            }
+        }
+        arr[k] = arr[i];
+        arr[i] = min;
+    }
+    //
+    cout << "zradobit dalagebuli: ";
+    for(int i = 0; i < n; i++)
+        cout << arr[i] << ' ';
+    cout << endl;
+
+    return 0;
+}

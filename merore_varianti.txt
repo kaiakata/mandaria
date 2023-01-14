@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+using namespace std;
+//orobiti dzebnis gaumjobesebuli x ricxvis dzebna
+int main()
+{
+    int A[200000], n, x, L, m, R;
+    cout << "Enter size: ";
+    cin >> n;
+    cout << "Enter numbers: ";
+    for(int i = 0; i < n; i++)
+        cin >> A[i];
+    cout << "Enter x number: ";
+    cin >> x;
+    //
+    R = n;
+    L = 0;
+    while(L < R)
+    {
+        m = (R + L) / 2;
+        if(A[m] < x)
+            L = m + 1;
+        else
+            R = m;
+    }
+    //
+    if(A[R] == x)
+    {
+        cout << x << " aris " << R << " indeqsze\n";
+    }
+    else
+    {
+        cout << x << " masivshi ar arsebobs\n";
+    }
+
+    return 0;
+}

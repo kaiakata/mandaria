@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// orobiti dzebna
+int main()
+{
+    int arr[100000], n, L, R, m, x;
+    cout << "sheiyvanet masivis zoma: ";
+    cin >> n;
+    cout << "sheiyvanet ricxvebi: ";
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    cout << "sheiyvanet sadziebeli ricxvi: ";
+    cin >> x;
+    //
+    L = 0;
+    R = n;
+    while(L < R)
+    {
+        m = (R + L) / 2;
+        if(arr[m] > x)
+            L = m + 1;
+        else
+            R = m;
+    }
+    //
+    if(arr[R] == x)
+        cout << x << " ricxvi mdebarebos " << R << " indeqsze\n";
+    else
+        cout << x << " ricxvi ar arsebobs\n";
+ 
+    return 0;
+}

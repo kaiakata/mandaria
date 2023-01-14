@@ -1,0 +1,45 @@
+//luwi ricxvebis jami 
+
+#include <bits/stdc++.h>
+using namespace std;
+
+
+int main()
+{
+    int A[10000], B[10000], n, k, l, m, N;
+    cin >> n;
+    for(int i = 0; i < n; i++)
+        cin >> A[i];
+    //luwi ricxvebis jamis povna
+    int even_sum = 0;
+    for(int i = 0; i < n; i++)
+    {
+        if(A[i] %2 == 0)
+        {
+            even_sum += A[i];
+        }
+    }
+    N = even_sum;
+    //
+    //cxrilurshi gadayvanis algoritmi
+    k = -1;
+    l = N;
+    while(l >= 1)
+    {
+        l /= 10;
+        k++;
+    }
+    m = k;
+    while(N >= 1)
+    {
+        B[k] = N % 10;
+        N /= 10;
+        k--; 
+    }
+    //
+    for(int i = 0; i <= m; i++)
+        cout << B[i] << ' ';
+    cout << endl;
+
+    return 0;
+}
