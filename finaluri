@@ -1,0 +1,218 @@
+1)
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+	int arr[200000], n, x, L, R, m;
+	cout << "sheiyvanet zoma: ";
+	cin >> n;
+	cout << "sheiyvanet ricxvebi zrdadobis mixedvit: ";
+	for(int i = 0; i < n; i++)
+		cin >> arr[i];
+	cout << "sheiyvanet sadziebeli ricxvi: ";
+	cin >> x;
+	//
+	L = 0;
+	R = n;
+	while(L < R)
+	{
+		m = (L + R) / 2;
+		if(arr[m] < x)
+			L = m + 1;
+		else
+			R = m;
+	}
+	//
+	if(arr[R] != x)
+	{
+		int k = 0;
+		cout << "es ricxvi masivshi ararsebobs, tu iarsebebda, misi indeqsi iqneboda: ";
+		for(int i = 0; i < n; i++)
+		{
+			if(x < arr[i])
+				break;
+			k++;
+		}
+		cout << k << endl;
+	}
+	else
+		cout << "ricxvi " << x << " gvxvdeba me-" << R << " indeqsze\n";
+	
+	return 0;
+}
+2)
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+	int arr[10000], n, k, min;
+	cout << "sheiyvanet zoma: ";
+	cin >> n;
+	cout << "sheiyvanet ricxvebi: ";
+	for(int i = 0; i < n; i++)
+		cin >> arr[i];
+	//
+	for(int i = 0; i < n- 1; i++)
+	{
+		k = i;
+		min = arr[i];
+		for(int j = i + 1; j < n; j++)
+		{
+			if(arr[j] < min)
+			{
+				min = arr[j];
+				k = j;
+			}
+		}
+		arr[k] = arr[i];
+		arr[i] = min;
+	}
+	//
+	cout << "zrdadobit dalagebuli: ";
+	for(int i = 0; i < n; i++)
+		cout << arr[i] << ' ';
+	cout << endl; 
+	
+	return 0;
+}
+3)
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+	int a[15], b[100], n, N, p, k;
+	cout << "sheiyvanet zoma: ";
+	cin >> n;
+	cout << "sheiyvanet ricxvi cxriluri saxit: ";
+	for(int i = 0; i < n; i++)
+		cin >> a[i];
+	cout << "sheiyvanet (p) ricxvi (2-dan 10-mde): ";
+	cin >> p;
+	//
+	int num = 0;
+	for(int i = 0; i < n; i++)
+		num = num * 10 + a[i];
+	//
+	cout << "chveulebrivad gardaqmnili ricxvi: " << num << endl;
+	//
+	N = num;
+	k = -1;
+	while(N >= 1)
+	{
+		k++;
+		b[k] = N % p;
+		N /= p;
+	}
+	//
+	cout << p << "-obitshi gadayvanili: ";
+	for(int i = k; i >= 0; i--)
+		cout << b[i];
+	cout << endl;
+	
+	return 0;
+}
+4)
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+	int A[100][1000], B[100][1000], n, m, mx;
+	cout << "sheiyvanet zomebi (n da m): ";
+	cin >> n >> m;
+	cout << "sheiyvanet cifrebi matriculad mxolod 0-ebit da 1-ebit (" << n << 'x' << m << ")\n";
+	for(int i = 0; i < n; i++)
+		for(int j = 0; j < m; j++)
+			cin >> A[i][j];
+	cout << endl;
+	//
+	B[0][0] = A[0][0];
+	for(int i = 1; i < n; i++)
+	{
+		B[i][0] = min(B[i - 1][0], A[i][0]);
+	}
+	for(int i = 1; i < m; i++)
+	{
+		B[0][i] = min(B[0][i - 1], A[0][i - 1]);
+	}
+	for(int i = 1; i < n; i++)
+	{
+		for(int j = 1; j < m; j++)
+		{
+			B[i][j] = min(A[i - 1][j], A[i][j - 1]);
+			B[i][j] = min(A[i - 1][j - 1], B[i][j]) + 1;
+		}
+	}
+	for(int i = 0; i < n; i++)
+	{
+		for(int j = 0; j < m; j++)
+		{
+			cout << B[i][j] << ' ';
+		}
+		cout << endl;
+	}
+	cout << endl;
+	//
+	cout << "maqsimaluri zoma: ";
+	mx = B[0][0];
+	for(int i = 0; i < n; i++)
+	{
+		for(int j = 0; j < m; j++)
+		{
+			if(B[i][j] > mx)
+			{
+				mx = B[i][j];
+			}
+		}
+	}		
+	cout << mx << endl;
+	 
+	return 0;
+}
+5)
+
+
+5.
+	while(a != 0 && b != 0)
+	{
+		If(a > b)
+			a = a % b;
+		else
+			b = b % a;
+	}
+	USG = a + b;
+
+6.
+	ITERATIVE_TREE_SEARCH(x, k)
+	{
+		while(x != nil && k != key(x))
+		{
+If(k < key(x))
+           x = left(x);
+else
+           x = right(x);
+}
+	}
+
+7. 
+
+	pop()
+	{
+		Top - -;
+		return S[Top + 1];
+	}
+
+	STACK-EMPTY()
+	{
+		If(Top >= 0)
+			return false;
+		else
+			return true;
+	}
+
+	
+
+
